@@ -17,7 +17,7 @@ const SearchBar = ({ setSearchTerm }) => {
 
     useEffect(() => {
 
-        //dont trigger a re-render and run the rest of the logic
+        //wont trigger a re-render and run the rest of the logic
         if (initial.current) {
             initial.current = false;
             return;
