@@ -13,9 +13,12 @@ const initialState = {
 //... is ES6 syntax that spreads the movies
 //spreads the movies (never mutate the object in react, will cause problems)
 export const useHomeFetch = () => {
+    const [searchTerm, setSearchTerm] = useState('');
     const [state, setState] = useState(initialState);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+
+    console.log(searchTerm)
 
     const fetchMovies = async (page, searchTerm = "") => {
         try {
@@ -36,10 +39,13 @@ export const useHomeFetch = () => {
         setLoading(false);
     };
 
-    // Initial render
+    // Initial render and search
     useEffect(() => {
-        fetchMovies(1)
-    }, [])
+        //cleans the state before searching
+        setState(initialState)
+        //gets the movies if/if not user inputs a search term in the search bar
+        fetchMovies(1, searchTerm)
+    }, [searchTerm])
 
-    return { state, loading, error}
+    return { state, loading, error, setSearchTerm, searchTerm }
 }
