@@ -1,6 +1,6 @@
 # MovieInfo App
 
-The MovieInfo App allows users to look at movie descriptions and their ratings. This application uses JavaScript, HTML, CSS, React, TMDB API, and Styled-components
+This application lets users browse through the most popular movies and filters out movies based on your input. This application uses JavaScript, HTML, CSS, React, TMDB API, and Styled-components
 
 ![Screenshot (1676)](https://user-images.githubusercontent.com/77702776/148675182-c7e5574d-7112-46d2-8153-6e6ba9f2fa40.png)
 
