@@ -17,8 +17,9 @@ export const useHomeFetch = () => {
     const [state, setState] = useState(initialState);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [isLoadingMore, setIsLoadingMore] = useState(false);
 
-    console.log(searchTerm)
+    // console.log(searchTerm)
 
     const fetchMovies = async (page, searchTerm = "") => {
         try {
@@ -39,13 +40,25 @@ export const useHomeFetch = () => {
         setLoading(false);
     };
 
-    // Initial render and search
+    // tells react to load movie page in its initial (first) render and search renders
+    //NOTE: will only re-render if the state (searchTerm) in the dependency list changes
     useEffect(() => {
         //cleans the state before searching
-        setState(initialState)
+        setState(initialState);
         //gets the movies if/if not user inputs a search term in the search bar
-        fetchMovies(1, searchTerm)
+        fetchMovies(1, searchTerm);
+        //dependency list is used whenever the state changes (thats why searchterm is in the list because I need the page to re-render after each searchbar input)
     }, [searchTerm])
 
-    return { state, loading, error, setSearchTerm, searchTerm }
+    //Load More
+    useEffect(() => {
+        if (!isLoadingMore) {
+            return;
+        }
+        
+        fetchMovies(state.page + 1, searchTerm)
+        setIsLoadingMore(false);
+    }, [isLoadingMore, searchTerm, state.page])
+
+    return { state, loading, error, setSearchTerm, searchTerm, setIsLoadingMore }
 }

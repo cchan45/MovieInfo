@@ -9,7 +9,7 @@ import { Wrapper, Content } from './SearchBar.styles'
 //controlled component is a component that react controls
 //we use useState because we need to create a controlled component
 //means we are going to have our input field, but it's controlled by react
-//the value in the input field is going to be based on the state
+//the value in the input field is going to be based on the state and will change based on inputs in the search bar
 const SearchBar = ({ setSearchTerm }) => {
     const [state, setState] = useState('');
     const initial = useRef(true);
@@ -17,7 +17,7 @@ const SearchBar = ({ setSearchTerm }) => {
 
     useEffect(() => {
 
-        //wont trigger a re-render and run the rest of the logic
+        //wont trigger a re-render and will run the rest of the logic
         if (initial.current) {
             initial.current = false;
             return;
