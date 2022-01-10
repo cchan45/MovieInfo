@@ -55,6 +55,7 @@ const Home = () => {
                 />
             ))}
         </Grid>
+        {/* only shows the spinner if loading is true */}
         {loading && <Spinner />}
         {/* checks if the page is less than the total pages (tells us that we want to show the "load More" Button) */}
         {/* and if we are not currently loading anything */}
