@@ -1,6 +1,6 @@
 # MovieInfo App
 
-THe MovieInfo App lets users browse through the most popular movies and filters out movies based on their input. They can also click on an individual movie for more information about the movie. 
+The MovieInfo App lets users browse through the most popular movies and filters out movies based on their input. They can also click on an individual movie for more information about the movie. 
 
 This application uses JavaScript, HTML, CSS, React, TMDB API, and Styled-components
 
